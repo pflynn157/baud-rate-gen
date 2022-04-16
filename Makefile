@@ -1,11 +1,14 @@
 # The files
 FILES		= src/transmitter.vhdl \
+				src/receiver.vhdl \
                 src/baud_rate.vhdl \
-                src/fifo.vhdl
+                src/fifo.vhdl \
+                src/uart.vhdl
 SIMDIR		= sim
 SIMFILES	= test/transmitter_tb.vhdl \
                 test/baud_rate_tb.vhdl \
-                test/fifo_tb.vhdl
+                test/fifo_tb.vhdl \
+                test/uart_tb.vhdl
 
 # GHDL
 GHDL_CMD	= ghdl
@@ -28,12 +31,14 @@ compile:
 	ghdl -e -o sim/transmitter_tb $(GHDL_FLAGS) $(GHDL_WORKDIR) transmitter_tb
 	ghdl -e -o sim/baud_rate_tb $(GHDL_FLAGS) $(GHDL_WORKDIR) baud_rate_tb
 	ghdl -e -o sim/fifo_tb $(GHDL_FLAGS) $(GHDL_WORKDIR) fifo_tb
+	ghdl -e -o sim/uart_tb $(GHDL_FLAGS) $(GHDL_WORKDIR) uart_tb
 
 run:
 	cd sim; \
 	ghdl -r $(GHDL_FLAGS) transmitter_tb $(GHDL_STOP) --wave=wave.ghw; \
 	ghdl -r $(GHDL_FLAGS) baud_rate_tb $(GHDL_STOP) --wave=wave2.ghw; \
 	ghdl -r $(GHDL_FLAGS) fifo_tb --stop-time=500ns --wave=wave3.ghw; \
+	ghdl -r $(GHDL_FLAGS) uart_tb --stop-time=500ns --wave=wave4.ghw; \
 	cd ..
 
 view:
