@@ -82,7 +82,7 @@ architecture Behavior of UART is
     end component;
     
     -- All the signals we need
-    signal s_tick : std_logic_vector(N-1 downto 0);
+    signal s_tick : std_logic := '0';
     
     -- Receiver signals
     signal rx_done_tick : std_logic := '0';
@@ -94,11 +94,11 @@ architecture Behavior of UART is
     signal tx_din : std_logic_vector(7 downto 0);
 begin
     -- Connect the components
-    brg : Baud_Rate port map(clk => clk, reset => reset, max_tick => open, q => s_tick);
+    brg : Baud_Rate port map(clk => clk, reset => reset, max_tick => s_tick, q => open);
     tx_uut : Transmitter port map(
         clk => clk,     -- Entity => local
         reset => reset,
-        s_tick => s_tick(0),        -- TODO: This is probably wrong
+        s_tick => s_tick,
         tx_start => tx_start,
         tx_done_tick => tx_rd,
         din => tx_din,
@@ -109,7 +109,7 @@ begin
         clk => clk,     -- Entity => local
         reset => reset,
         rx => rx,
-        s_tick => s_tick(0),        -- TODO: This is probably wrong
+        s_tick => s_tick,
         rx_done_tick => rx_done_tick,
         dout => rx_w_data
     );
