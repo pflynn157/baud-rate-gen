@@ -1,0 +1,26 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Thu Apr 21 17:48:38 2022
+[*]
+[dumpfile] "/home/patrick/Projects/Github/baud-rate-gen/sim/wave5.ghw"
+[dumpfile_mtime] "Thu Apr 21 17:47:55 2022"
+[dumpfile_size] 826
+[savefile] "/home/patrick/Projects/Github/baud-rate-gen/receiver.gtkw"
+[timestart] 0
+[size] 1920 1011
+[pos] -460 -206
+*-25.912764 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[sst_width] 212
+[signals_width] 126
+[sst_expanded] 1
+[sst_vpaned_height] 292
+@28
+top.receiver_tb.clk
+top.receiver_tb.reset
+top.receiver_tb.rx
+top.receiver_tb.s_tick
+@29
+top.receiver_tb.rx_done_tick
+[pattern_trace] 1
+[pattern_trace] 0
