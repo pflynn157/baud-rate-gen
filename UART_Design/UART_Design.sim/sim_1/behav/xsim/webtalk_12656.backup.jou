@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sat Apr 23 19:21:01 2022
+# Process ID: 12656
+# Current directory: C:/Users/nasee/OneDrive/Desktop/Spring 2022/ECGR 4146/Labs/UART_Design/UART_Design.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/Users/nasee/OneDrive/Desktop/Spring 2022/ECGR 4146/Labs/UART_Design/UART_Design.sim/sim_1/behav/xsim/xsim.dir/Baud_Rate_Generator_sim_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/nasee/OneDrive/Desktop/Spring 2022/ECGR 4146/Labs/UART_Design/UART_Design.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: C:/Users/nasee/OneDrive/Desktop/Spring 2022/ECGR 4146/Labs/UART_Design/UART_Design.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/nasee/OneDrive/Desktop/Spring -notrace

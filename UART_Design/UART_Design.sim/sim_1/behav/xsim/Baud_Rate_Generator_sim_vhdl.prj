@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../UART_Design.srcs/sources_1/new/Baud_Rate_Generator.vhd" \
+"../../../../UART_Design.srcs/sim_1/new/Baud_Rate_Generator_tb.vhd" \
+
+# Do not sort compile order
+nosort

@@ -1,0 +1,1 @@
+-wto "4b30fbf81c344e0e8a7734a0c3627f2d" --incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "Baud_Rate_Generator_sim_behav" "xil_defaultlib.Baud_Rate_Generator_sim" -log "elaborate.log" 
