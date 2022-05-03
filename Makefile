@@ -4,14 +4,16 @@ FILES		= src/transmitter.vhdl \
                 src/baud_rate.vhdl \
                 src/fifo.vhdl \
                 src/uart.vhdl \
-                src/ram.vhdl
+                src/ram.vhdl \
+                src/classification.vhdl
 SIMDIR		= sim
 SIMFILES	= test/transmitter_tb.vhdl \
                 test/receiver_tb.vhdl \
                 test/baud_rate_tb.vhdl \
                 test/fifo_tb.vhdl \
                 test/uart_tb.vhdl \
-                test/ram_tb.vhdl
+                test/ram_tb.vhdl \
+                test/classification_tb.vhdl
 
 # GHDL
 GHDL_CMD	= ghdl
@@ -37,6 +39,7 @@ compile:
 	ghdl -e -o sim/fifo_tb $(GHDL_FLAGS) $(GHDL_WORKDIR) fifo_tb
 	ghdl -e -o sim/uart_tb $(GHDL_FLAGS) $(GHDL_WORKDIR) uart_tb
 	ghdl -e -o sim/ram_tb $(GHDL_FLAGS) $(GHDL_WORKDIR) ram_tb
+	ghdl -e -o sim/classification_tb $(GHDL_FLAGS) $(GHDL_WORKDIR) classification_tb
 
 run:
 	cd sim; \
@@ -46,6 +49,7 @@ run:
 	ghdl -r $(GHDL_FLAGS) uart_tb --stop-time=500ns --wave=wave4.ghw; \
 	ghdl -r $(GHDL_FLAGS) receiver_tb --stop-time=500ns --wave=wave5.ghw; \
 	ghdl -r $(GHDL_FLAGS) ram_tb --stop-time=500ns --wave=wave6.ghw; \
+	ghdl -r $(GHDL_FLAGS) classification_tb --stop-time=500ns --wave=wave7.ghw; \
 	cd ..
 
 view:
