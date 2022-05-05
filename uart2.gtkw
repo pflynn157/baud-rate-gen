@@ -1,0 +1,26 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Thu May  5 15:30:56 2022
+[*]
+[dumpfile] "/home/patrick/Desktop/baud-rate-gen/sim/wave4.ghw"
+[dumpfile_mtime] "Thu May  5 15:18:23 2022"
+[dumpfile_size] 12914
+[savefile] "/home/patrick/Desktop/baud-rate-gen/uart2.gtkw"
+[timestart] 0
+[size] 1920 1049
+[pos] 1460 -207
+*-26.979921 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[sst_width] 212
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 305
+@28
+top.uart_tb.clk
+top.uart_tb.reset
+top.uart_tb.rx
+top.uart_tb.rx_ready
+@29
+top.uart_tb.tx
+[pattern_trace] 1
+[pattern_trace] 0
