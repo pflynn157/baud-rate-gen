@@ -5,7 +5,8 @@ use IEEE.numeric_std.all;
 entity Baud_Rate is
     generic(
         N: integer := 5;
-        M: integer := 27
+        --M: integer := 27
+        M : integer := 5
     );
         
     Port(

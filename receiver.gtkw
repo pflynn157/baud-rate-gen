@@ -1,26 +1,42 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Thu Apr 21 17:48:38 2022
+[*] Thu May  5 12:17:59 2022
 [*]
-[dumpfile] "/home/patrick/Projects/Github/baud-rate-gen/sim/wave5.ghw"
-[dumpfile_mtime] "Thu Apr 21 17:47:55 2022"
-[dumpfile_size] 826
-[savefile] "/home/patrick/Projects/Github/baud-rate-gen/receiver.gtkw"
+[dumpfile] "/home/patrick/Desktop/baud-rate-gen/sim/wave5.ghw"
+[dumpfile_mtime] "Thu May  5 12:17:43 2022"
+[dumpfile_size] 3135
+[savefile] "/home/patrick/Desktop/baud-rate-gen/receiver.gtkw"
 [timestart] 0
-[size] 1920 1011
-[pos] -460 -206
-*-25.912764 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 1918 1049
+[pos] -1 -1
+*-25.959066 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
+[treeopen] top.receiver_tb.
+[treeopen] top.receiver_tb.uut1.
+[treeopen] top.receiver_tb.uut2.
 [sst_width] 212
 [signals_width] 126
 [sst_expanded] 1
-[sst_vpaned_height] 292
+[sst_vpaned_height] 304
 @28
 top.receiver_tb.clk
 top.receiver_tb.reset
 top.receiver_tb.rx
 top.receiver_tb.s_tick
-@29
 top.receiver_tb.rx_done_tick
+@22
+#{top.receiver_tb.dout[7:0]} top.receiver_tb.dout[7] top.receiver_tb.dout[6] top.receiver_tb.dout[5] top.receiver_tb.dout[4] top.receiver_tb.dout[3] top.receiver_tb.dout[2] top.receiver_tb.dout[1] top.receiver_tb.dout[0]
+@200
+-
+@28
+top.receiver_tb.s_tick
+@22
+#{top.receiver_tb.uut2.b_reg[7:0]} top.receiver_tb.uut2.b_reg[7] top.receiver_tb.uut2.b_reg[6] top.receiver_tb.uut2.b_reg[5] top.receiver_tb.uut2.b_reg[4] top.receiver_tb.uut2.b_reg[3] top.receiver_tb.uut2.b_reg[2] top.receiver_tb.uut2.b_reg[1] top.receiver_tb.uut2.b_reg[0]
+@200
+-
+@28
+top.receiver_tb.uut1.max_tick
+@25
+#{top.receiver_tb.uut1.r_reg[4:0]} top.receiver_tb.uut1.r_reg[4] top.receiver_tb.uut1.r_reg[3] top.receiver_tb.uut1.r_reg[2] top.receiver_tb.uut1.r_reg[1] top.receiver_tb.uut1.r_reg[0]
 [pattern_trace] 1
 [pattern_trace] 0

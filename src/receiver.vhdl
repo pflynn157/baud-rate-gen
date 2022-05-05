@@ -1,3 +1,13 @@
+--
+-- This is probably not the right way to do the receiver, but the original didn't work at all
+-- This listens for the clock and the baud rate generator. The RX takes in one input of data.
+-- 
+-- When the clock and the baud rate generator go high, the RX receives the data and puts it in
+-- the current location of the array.
+--
+-- When the array is full, "rx_done_tick" goes high, and the process starts over.
+--
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -17,82 +27,37 @@ entity Receiver is
 end Receiver;
 
 architecture Behavior of Receiver is
-    type state_type is (idle, start, data, stop);
-    signal state_reg, state_next: state_type;
-    signal s_reg, s_next: unsigned(3 downto 0);
-    signal n_reg, n_next: unsigned(2 downto 0);
-    signal b_reg, b_next: std_logic_vector(7 downto 0);
+    signal b_reg : std_logic_vector(7 downto 0) := "00000000";
+    signal done : std_logic := '0';
+    signal location : integer := 0;
+    
+    constant max : integer := 7;
 begin
-    process(clk, reset) -- FSMD state and data regs.
-        begin
-        if (reset = '1') then
-            state_reg <= idle;
-            s_reg <= (others => '0');
-            n_reg <= (others => '0');
-            b_reg <= (others => '0');
-        elsif (clk'event and clk='1') then
-            state_reg <= state_next;
-            s_reg <= s_next;
-            n_reg <= n_next;
-            b_reg <= b_next;
+    process (clk) is
+    begin
+        if rising_edge(clk) and reset = '1' then
+            -- TODO
+            rx_done_tick <= '0';
+        elsif rising_edge(clk) and reset = '0' then
+            if s_tick = '1' then
+                if location = max then
+                    rx_done_tick <= '1';
+                    done <= '1';
+                    location <= 0;
+                    dout <= b_reg;
+                else
+                    b_reg(location) <= rx;
+                    location <= location + 1;
+                    rx_done_tick <= '0';
+                    done <= '0';
+                    dout <= "00000000";
+                end if;
+            end if;
+            
+            if done = '1' then
+                rx_done_tick <= '0';
+            end if;
         end if;
     end process;
-
-    -- next state logic
-    process (state_reg, s_reg, n_reg, b_reg, s_tick, rx)
-        begin
-        state_next <= state_reg;
-        s_next <= s_reg;
-        n_next <= n_reg;
-        b_next <= b_reg;
-        rx_done_tick <= '0';
-        
-        case state_reg is
-            when idle =>
-                if(rx = '0') then
-                    state_next <= start;
-                    s_next <= (others => '0');
-                end if;
-
-            when start =>
-                if(s_tick = '1') then
-                if(s_reg = 7) then
-                    state_next <= data;
-                    s_next <= (others => '0');
-                    n_next <= (others => '0');
-                else
-                    s_next <= s_reg + 1;
-                end if;
-                end if;
-
-            when data =>
-                if (s_tick = '1') then
-                if (s_reg = 15) then
-                    s_next <= (others => '0');
-                    b_next <= rx & b_reg(7 downto 1);
-                if (n_reg = (DBIT - 1)) then
-                    state_next <= stop;
-                else
-                    n_next <= n_reg + 1;
-                end if;
-                else
-                    s_next <= s_reg + 1;
-                end if;
-                end if;
-                
-            when stop =>
-                if (s_tick = '1') then
-                if (s_reg = (SB_TICK-1)) then
-                    state_next <= idle;
-                    rx_done_tick <= '1';
-                else
-                    s_next <= s_reg + 1;
-                end if;
-                end if;
-            end case;
-    end process;
-
-    dout <= b_reg;
-
 end Behavior;
 

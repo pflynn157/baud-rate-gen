@@ -43,6 +43,7 @@ begin
                 end if;
                 
                 wp <= std_logic_vector(to_unsigned(to_integer(unsigned(wp)) + 1, 4));
+                empty <= '0';
             end if;
             
             -- Read
@@ -53,7 +54,6 @@ begin
             
             -- Set empty/full bits
             full <= wp(3);
-            empty <= rp(3);
         end if;
     end process;
 end Behavior;
